@@ -1,12 +1,16 @@
 {
   "name": "jsbackend02",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "vivek sharma",
   "license": "ISC",
-  "description": ""
+  "description": "backend  with  me",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
 }
