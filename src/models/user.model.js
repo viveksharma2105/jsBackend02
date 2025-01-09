@@ -70,7 +70,7 @@ refreshToken:{
 userSchema.pre("save",  async function (next) {
     if (!this.isModified()) return next(); //use  for  not changing thepwd every time like if we change the avatar the password remain  untouched
 
-    this.password  = bcrypt.hash(this.password,10)
+    this.password  = await bcrypt.hash(this.password,10)
     next()
 })
 
