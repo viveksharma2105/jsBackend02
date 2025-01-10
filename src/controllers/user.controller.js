@@ -21,7 +21,7 @@ const registerUser =  asyncHandler(async (req, res) => {
   //step:1 (req.body  gives the data from frontend)
 
   const {fullName, email, username, password}  = req.body
-  console.log(email);
+  //console.log(email);
 
   //step 2
   
@@ -38,13 +38,14 @@ const registerUser =  asyncHandler(async (req, res) => {
   }
 
   //step3
-const existedUser = User.findOne({
-  $or: [{username},{email}]
+  const existedUser = await User.findOne({
+    $or: [{ username }, { email }]
 })
 
-if(existedUser){
-  throw new ApiError(409, "user with username or email is  already exist")
+if (existedUser) {
+    throw new ApiError(409, "User with email or username already exists")
 }
+//console.log(req.files);
 
 const avatarLocalPath = req.files?.avatar[0]?.path;
 const coverImageLocalPath = req.files?.coverImage[0]?.path;
