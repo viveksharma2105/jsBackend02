@@ -4,6 +4,8 @@ import { upload} from "../middlewares/multer.middleware.js"
 
 const router = Router()
 
+
+//our  middleware
 router.route("/register").post(
     upload.fields([
         {
